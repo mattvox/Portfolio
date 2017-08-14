@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+const App = (props) => (
+  <div>
+    {props.children}
+  </div>
+)
 
 export default App;
+
+{/* <div>
+  <Slider>
+      <div itemStyle={{ backgroundColor: '#a2d7c7' }}>
+        <div className="content">Hello, world.</div>
+      </div>
+      <div itemStyle={{ backgroundColor: '#353330' }}>
+        <div className="content">Sup?</div>
+      </div>
+      <div itemClass="has-overlay" itemStyle={{ backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover' }}>
+        <div className="content">Yo.</div>
+      </div>
+    </Slider>
+  {props.children}
+</div> */}
