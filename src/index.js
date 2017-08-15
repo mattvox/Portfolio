@@ -9,6 +9,8 @@ import reducers from './reducers';
 import routes from './routes';
 
 import './index.css';
+import 'semantic-ui-css/semantic.min.css';
+
 import registerServiceWorker from './registerServiceWorker';
 
 /* eslint-disable no-underscore-dangle */

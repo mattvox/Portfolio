@@ -9,6 +9,23 @@ const client = createClient({
   accessToken: API_TOKEN,
 })
 
+export function fetchProjects() {
+  const request = client.getEntries({
+    'content_type': 'project'
+  })
+  .then((response) => response)
+  .catch(console.error)
+
+  return {
+    type: FETCH_PROJECTS,
+    payload: request,
+  }
+}
+
+
+
+// CONTENTFUL API WITH AXIOS INSTEAD OF CONTENTFUL
+
 // export function fetchProjects() {
 //   const request = axios.get(`${API_BASE_URL}/spaces/${API_SPACE_ID}/entries?access_token=${API_TOKEN}&content_type=project`);
 //
@@ -17,18 +34,3 @@ const client = createClient({
 //     payload: request,
 //   }
 // }
-
-export function fetchProjects() {
-  const request = client.getEntries({
-    'content_type': 'project'
-  })
-  .then((response) => response.items)
-  .catch(console.error)
-
-  // console.log(client.content_types);
-
-  return {
-    type: FETCH_PROJECTS,
-    payload: request,
-  }
-}

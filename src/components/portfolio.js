@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 
 import Slider from 'react-viewport-slider';
 
+import Hello from './hello'
+import Skills from './skills'
+import About from './about'
+import Contact from './contact'
+// import Projects from './projects'
+
+
 
 export default class Portfolio extends Component {
   componentDidMount() {
@@ -12,20 +19,28 @@ export default class Portfolio extends Component {
   render() {
     return (
       <Slider>
-        <div itemStyle={{ backgroundColor: '#a2d7c7' }}>
-          <div className="content">This is where hello.js goes.</div>
+        <div>
+          <div className="content">
+            <Hello greeting='Hello,' text='my name is Matt and I am a full stack developer.' />
+          </div>
         </div>
-        <div itemStyle={{ backgroundColor: '#353330' }}>
-          <div className="content">This is where skills.js goes.</div>
+
+        <div>
+          <div className="content">
+            <Skills />
+          </div>
         </div>
-        <div itemStyle={{ backgroundColor: '#c2d9c7' }}>
-          <div className="content">This is where projects.js goes.</div>
+
+        <div>
+          <div className="content">
+            <Contact />
+          </div>
         </div>
-        <div itemStyle={{ backgroundColor: '#84ebee' }}>
-          <div className="content">This is where about.js goes</div>
-        </div>
-        <div itemStyle={{ backgroundColor: '#dc90de' }}>
-          <div className="content">This is where contact or footer goes</div>
+
+        <div>
+          <div className="content">
+            <About />
+          </div>
         </div>
       </Slider>
     )

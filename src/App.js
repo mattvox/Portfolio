@@ -1,24 +1,17 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
+// import { Grid, Row, Col } from 'react-bootstrap';
 
 const App = (props) => (
-  <div>
+  <Container fluid>
     {props.children}
-  </div>
+  </Container>
 )
 
-export default App;
+// const App = (props) => (
+//   <Grid>
+//     {props.children}
+//   </Grid>
+// )
 
-{/* <div>
-  <Slider>
-      <div itemStyle={{ backgroundColor: '#a2d7c7' }}>
-        <div className="content">Hello, world.</div>
-      </div>
-      <div itemStyle={{ backgroundColor: '#353330' }}>
-        <div className="content">Sup?</div>
-      </div>
-      <div itemClass="has-overlay" itemStyle={{ backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover' }}>
-        <div className="content">Yo.</div>
-      </div>
-    </Slider>
-  {props.children}
-</div> */}
+export default App;
