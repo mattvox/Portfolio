@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Grid } from 'react-bootstrap';
 
-import Slider from 'react-viewport-slider';
+// import Slider from 'react-viewport-slider';
 
 import Hello from './hello'
 import Skills from './skills'
 import About from './about'
 import Contact from './contact'
+import Footer from './footer'
 // import Projects from './projects'
 
 
@@ -18,31 +20,41 @@ export default class Portfolio extends Component {
 
   render() {
     return (
-      <Slider>
-        <div>
-          <div className="content">
-            <Hello greeting='Hello,' text='my name is Matt and I am a full stack developer.' />
+      // <Slider>
+      //
+      // </Slider>
+      <div>
+        <Grid>
+          <div>
+            <div className="content">
+              <Hello greeting='Hello,' text='my name is Matt, a full stack developer living in the Philadelphia area.' />
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div className="content">
-            <Skills />
+          <div>
+            <div className="content">
+              <Skills />
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div className="content">
-            <Contact />
+          <div>
+            <div className="content">
+              <About />
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div className="content">
-            <About />
+          <div>
+            <div className="content">
+              <Contact />
+            </div>
           </div>
-        </div>
-      </Slider>
+
+
+
+        </Grid>
+        <Footer />
+</div>
+
     )
   }
 }

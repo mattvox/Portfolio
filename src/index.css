@@ -12,7 +12,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
 }
 
-.viewport-slider-item {
+/*.viewport-slider-item {
   align-items: center;
   color: #333;
   display: flex;
@@ -55,16 +55,21 @@ body {
 
 .viewport-slider-paginator-bullet.is-active {
   opacity: 1;
-}
+}*/
 
 .content {
-  font-size: 5em;
+  font-size: 4.5em;
   font-weight: bold;
   letter-spacing: -1px;
   margin: 0;
 }
 
-.has-overlay::after {
+.content-title {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+/*.has-overlay::after {
   content: '';
   background-color: #d5af86;
   left: 0;
@@ -117,4 +122,4 @@ body {
   70% {
     transform: scale(1);
   }
-}
+}*/

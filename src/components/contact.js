@@ -1,27 +1,29 @@
 import React from 'react';
-import { Container, Grid } from 'semantic-ui-react';
+import { Row, Col } from 'react-bootstrap';
 
+const style = {
+  fontSize: '0.3em',
+}
 
 const Contact = (props) => (
-  <Container>
-    <p>Stalk me</p>
-  <Grid columns={2} stackable>
-      <Grid.Row>
-        <Grid.Column>
-          <p style={{ fontSize: '0.3em', fontWeight: '100' }}>write</p>
-        </Grid.Column>
-        <Grid.Column>
-          <p style={{ fontSize: '0.3em' }}>mattbliffert@icloud.com</p>
-        </Grid.Column>
-        <Grid.Column>
-          <p style={{ fontSize: '0.3em', fontWeight: '100' }}>visit</p>
-        </Grid.Column>
-        <Grid.Column>
-          <p style={{ fontSize: '0.3em' }}>github.com/mattvox</p>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
-  </Container>
+  <div>
+    <Row>
+      <Col xs={12} sm={11} smOffset={1} md={9} mdOffset={2}>
+        <p className='content-title'>Stalk me</p>
+      </Col>
+    </Row>
+    <Row style={style}>
+      <Col xs={12}>
+        <p>write: mattbliffert@icloud.com</p>
+      </Col>
+      <Col xs={12}>
+        <p>visit: github.com/mattvox</p>
+      </Col>
+      <Col xs={12}>
+        <p>some other form of contact should go here</p>
+      </Col>
+    </Row>
+  </div>
 )
 
 export default Contact;

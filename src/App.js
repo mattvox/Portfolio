@@ -1,11 +1,10 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 // import { Grid, Row, Col } from 'react-bootstrap';
 
 const App = (props) => (
-  <Container fluid>
+  <div>
     {props.children}
-  </Container>
+  </div>
 )
 
 // const App = (props) => (
