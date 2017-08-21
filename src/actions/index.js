@@ -2,12 +2,20 @@ import { createClient } from 'contentful';
 
 import { API_SPACE_ID, API_TOKEN } from '../settings_local';
 
+export const FETCH_HELLO = 'FETCH_HELLO';
 export const FETCH_PROJECTS = 'FETCH_PROJECTS';
 
 const client = createClient({
   space: API_SPACE_ID,
   accessToken: API_TOKEN,
 })
+
+export function fetchHello() {
+  return {
+    type: FETCH_HELLO,
+    payload: '',
+  }
+}
 
 export function fetchProjects() {
   const request = client.getEntries({

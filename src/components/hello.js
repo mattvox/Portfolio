@@ -22,8 +22,8 @@ const Hello = (props) => (
     <Row style={childStyle}>
       <Col xs={11} xsOffset={1} sm={11} smOffset={1} md={9} mdOffset={2}>
         <div>
-          <p>{props.greeting}</p>
-        <p style={{ fontSize: '0.5em' }}>{props.text}</p>
+          <p className='page-title'>{props.greeting}</p>
+          <h2>{props.text}</h2>
         </div>
       </Col>
     </Row>

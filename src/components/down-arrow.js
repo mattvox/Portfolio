@@ -9,7 +9,7 @@ const style = {
   }
 
 const DownArrow = (props) => (
-  <div style={style}>
+  <div style={style} className='page-title'>
     *
   </div>
 )

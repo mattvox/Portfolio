@@ -11,9 +11,11 @@ import Contact from './contact'
 import Footer from './footer'
 // import Projects from './projects'
 
+import { fetchHello } from '../actions/index'
 
 
-export default class Portfolio extends Component {
+
+class Portfolio extends Component {
   componentDidMount() {
     // fetch all the required data from contentful
   }
@@ -24,33 +26,14 @@ export default class Portfolio extends Component {
       //
       // </Slider>
       <div>
-        <Grid>
-          <div>
-            <div className="content">
-              <Hello greeting='Hello,' text='my name is Matt, a full stack developer living in the Philadelphia area.' />
-            </div>
-          </div>
-
-          <div>
-            <div className="content">
-              <Skills />
-            </div>
-          </div>
-
-          <div>
-            <div className="content">
-              <About />
-            </div>
-          </div>
-
-          <div>
-            <div className="content">
-              <Contact />
-            </div>
-          </div>
-
-
-
+        <Grid fluid>
+          <Hello
+            greeting={this.props.hello.greeting}
+            text={this.props.hello.text}
+          />
+          <Skills />
+          <About />
+          <Contact />
         </Grid>
         <Footer />
 </div>
@@ -62,7 +45,8 @@ export default class Portfolio extends Component {
 function mapStateToProps(state) {
   return {
     projects: state.projects.projects,
+    hello: state.hello,
   }
 }
 
-// export default connect(mapStateToProps, { fetchProjects })(Portfolio);
+export default connect(mapStateToProps, { fetchHello })(Portfolio);
