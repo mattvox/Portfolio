@@ -10,42 +10,59 @@ import About from './about'
 import Contact from './contact'
 import Footer from './footer'
 // import Projects from './projects'
+import Loading from './hocs/is-loading'
 
 import { fetchHello } from '../actions/index'
 
 
 
 class Portfolio extends Component {
-  componentDidMount() {
-    // fetch all the required data from contentful
+  // componentDidMount() {
+  //   this.props.fetchHello();
+  // }
+
+  // renderHello() {
+  //   if (!this.props.hello) {
+  //     return <div>loading...</div>
+  //   } else {
+  //     return (
+  //       <Hello greeting={this.props.hello.greeting}
+  //             text={this.props.hello.text} />
+  //     )
+  //   }
+  // }
+
+  renderHello() {
+    const WrappedHello = Loading(Hello)
+
+    return (
+      <WrappedHello
+        // actionThing={this.props.fetchHello()}
+        greeting={this.props.hello.greeting}
+        text={this.props.hello.text}
+      />
+    )
   }
 
   render() {
     return (
-      // <Slider>
-      //
-      // </Slider>
       <div>
         <Grid fluid>
-          <Hello
-            greeting={this.props.hello.greeting}
-            text={this.props.hello.text}
-          />
+          {this.renderHello()}
           <Skills />
           <About />
           <Contact />
         </Grid>
         <Footer />
-</div>
-
+      </div>
     )
   }
 }
 
 function mapStateToProps(state) {
   return {
-    projects: state.projects.projects,
-    hello: state.hello,
+    projects: state.projectsPage.projects,
+    hello: state.homePage.hello,
   }
 }
 

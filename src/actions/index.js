@@ -11,9 +11,13 @@ const client = createClient({
 })
 
 export function fetchHello() {
+  const request = client.getEntry('2MZa2O4GRqQwey4amcU2UI')
+  .then((response) => response)
+  .catch(console.error)
+
   return {
     type: FETCH_HELLO,
-    payload: '',
+    payload: request,
   }
 }
 

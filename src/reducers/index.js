@@ -4,8 +4,8 @@ import HelloReducer from './reducer-hello';
 import ProjectsReducer from './reducer-projects';
 
 const rootReducer = combineReducers({
-  hello: HelloReducer,
-  projects: ProjectsReducer,
+  homePage: HelloReducer,
+  projectsPage: ProjectsReducer,
 })
 
 export default rootReducer;
