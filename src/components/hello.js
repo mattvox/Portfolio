@@ -1,34 +1,48 @@
-import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React from 'react'
+import styled from 'styled-components'
+import { Row, Col } from 'react-bootstrap'
+import Scroll from 'react-scroll'
 
-import DownArrow from './down-arrow';
+import DownArrow from './down-arrow'
 
-const parentStyle = {
-    boxSizing: 'border-box',
-    height: '100vh',
-    position: 'relative',
-    width: '100%',
-  };
+const Link = Scroll.Link
 
-const childStyle = {
-  position: 'absolute',
-  top: '50%',
-  width: '100%',
-  transform: 'translateY(-50%)',
-}
+const Container = styled.div`
+  box-sizing: border-box;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  text-align: center;
+`
+
+const Content = styled.div`
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  color: #E6ECEE;
+  transform: translateY(-50%);
+
+  @media screen and (min-aspect-ratio: 3/2) {
+    top: 15%;
+  }
+`
 
 const Hello = (props) => (
-  <div style={parentStyle}>
-    <Row style={childStyle}>
-      <Col xs={11} xsOffset={1} sm={11} smOffset={1} md={9} mdOffset={2}>
-        <div>
-          <p className='page-title'>{props.greeting}</p>
-          <h2>{props.text}</h2>
-        </div>
-      </Col>
-    </Row>
-    <DownArrow />
-  </div>
+  <Container>
+    <Content>
+      <Row>
+        <Col xs={8} xsOffset={2} sm={8} smOffset={2} md={8} mdOffset={2}>
+          <div>
+            <p className='page-title'>{props.greeting}</p>
+            <h2>{props.text}</h2>
+          </div>
+        </Col>
+      </Row>
+    </Content>
+    <Link to={'About'} spy={true} smooth={true}>
+      <DownArrow />
+    </Link>
+</Container>
 )
 
 export default Hello;

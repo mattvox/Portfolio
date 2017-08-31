@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import HelloReducer from './reducer-hello';
 import ProjectsReducer from './reducer-projects';
+import PageReducer from './reducer-page'
 
 const rootReducer = combineReducers({
-  homePage: HelloReducer,
   projectsPage: ProjectsReducer,
+  pageData: PageReducer,
 })
 
 export default rootReducer;

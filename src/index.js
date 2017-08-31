@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import promise from 'redux-promise';
+import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 import routes from './routes';
 
 import './index.css';
-// import 'semantic-ui-css/semantic.min.css';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -17,7 +17,7 @@ import registerServiceWorker from './registerServiceWorker';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducers, /* preloadedState, */ composeEnhancers(
-  applyMiddleware(promise),
+  applyMiddleware(promise, thunk),
 ));
 /* eslint-enable */
 
