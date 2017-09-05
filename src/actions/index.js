@@ -92,18 +92,18 @@ export function flipLoader(loading) {
 
 
 
-// export function fetchProjects() {
-//   const request = client.getEntries({
-//     'content_type': 'project'
-//   })
-//   .then((response) => response)
-//   .catch(console.error)
-//
-//   return {
-//     type: FETCH_PROJECTS,
-//     payload: request,
-//   }
-// }
+export function fetchProjects() {
+  const request = client.getEntries({
+    'content_type': 'project'
+  })
+  .then((response) => response)
+  .catch(console.error)
+
+  return {
+    type: FETCH_PROJECTS,
+    payload: request,
+  }
+}
 
 
 

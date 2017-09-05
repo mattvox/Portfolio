@@ -20,6 +20,9 @@ const INITIAL_STATE = {
   skills: {
     data: {}
   },
+  project: {
+    data: {}
+  },
 }
 
 export default function (state = INITIAL_STATE, action) {

@@ -1,34 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  border: 0;
+  font-family: 'Raleway', sans-serif;
+  background-color: #242B3A;
+  width: 100%;
+  height: 100%;
 }
 
 *, *:after, *:before {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
-  background-color: #F33024;
-}
-
-.content {
-  font-size: 1.5em;
-  font-weight: normal;
-  margin: 0;
-}
-
-.page-title {
-  font-size: 4.5em;
-  font-weight: bold;
-  letter-spacing: -1px;
-  margin: 0;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  text-align: center;
-}
-
-.page {
-  padding-bottom: 60px;
-}
+/*// Hex values:
+// Orange - D45D3C
+// Dark gray - 3F4549
+// Medium gray - 67727A
+// Light gray - ACB8BC
+// Lightest gray - E6ECEE*/
