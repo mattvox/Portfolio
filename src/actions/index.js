@@ -94,7 +94,8 @@ export function flipLoader(loading) {
 
 export function fetchProjects() {
   const request = client.getEntries({
-    'content_type': 'project'
+    'content_type': 'skillss',
+    'include': 4,
   })
   .then((response) => response)
   .catch(console.error)

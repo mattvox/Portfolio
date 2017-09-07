@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { Grid, Row, Col } from 'react-bootstrap'
 import Scroll from 'react-scroll'
 
-import { Title, Subtitle } from './styled/styled'
 import DownArrow from './down-arrow'
+import { Title, Subtitle } from './styled/styled'
 
-const Link = Scroll.Link
+
+const AnchorLink = Scroll.Link
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -46,15 +47,19 @@ const ColorFix = styled.div`
 
 const Content = styled.div`
   position: absolute;
-  top: 50%;
+  top: 60%;
   height: 100%;
   width: 100%;
   color: #E6ECEE;
   transform: translateY(-50%);
 
-  @media screen and (min-aspect-ratio: 3/2) {
-    top: 35%;
+  @media screen and (min-aspect-ratio: 3/2), screen and (max-width: 440px) {
+    top: 50%;
   }
+`
+
+const Greeting = styled(Title)`
+  padding-bottom: 20px;
 `
 
 const Hello = (props) => (
@@ -63,18 +68,16 @@ const Hello = (props) => (
       <Content>
         <Grid fluid>
           <Row>
-            <Col xs={8} xsOffset={2} sm={8} smOffset={2} md={8} mdOffset={2}>
-              {props.isFetching ? <div>LOADING!~!!!</div> : <div>
-                <Title>{props.greeting}</Title>
-                <Subtitle>{props.text}</Subtitle>
-            </div>}
+            <Col xs={8} xsOffset={2}>
+              <Greeting>{props.greeting}</Greeting>
+              <Subtitle>{props.text}</Subtitle>
             </Col>
           </Row>
         </Grid>
       </Content>
-      <Link to={'About'} spy={true} smooth={true}>
+      <AnchorLink to={'About'} spy={true} smooth={true}>
         <DownArrow />
-      </Link>
+    </AnchorLink>
     </Background>
     <ColorFix />
   </Container>

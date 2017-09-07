@@ -17,17 +17,17 @@ import { fetchPageData, fetchProjects } from '../actions/index'
 class Portfolio extends Component {
   componentDidMount() {
     const { dispatch } = this.props
-    dispatch(fetchPageData('hello'))
+
     dispatch(fetchProjects())
-    console.log(this.props)
+
     dispatch(fetchPageData('about'))
-    // dispatch(fetchPageData('skills'))
+    dispatch(fetchPageData('skills'))
+    // dispatch(fetchPageData('projectsList'))
   }
 
   renderHello() {
     const { data, isFetching } = this.props.hello
     const { greeting, text } = data
-    const HelloWithLoader = Loading(Hello)
 
     return (
       <Hello
@@ -42,6 +42,7 @@ class Portfolio extends Component {
     const { data, isFetching } = this.props.about
     const { title, description } = data
     const AboutWithLoader = Loading(About)
+    console.log('rendered About')
 
     return (
       <AboutWithLoader

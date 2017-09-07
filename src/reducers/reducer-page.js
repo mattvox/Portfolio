@@ -3,11 +3,14 @@ import {
   RECEIVE_PAGE_DATA,
 } from '../actions/index'
 
+const greeting = 'Hi, I\'m Matt.'
+const text = 'I\'m a full stack developer with a passion for creating and a love for learning new things.'
+
 const INITIAL_STATE = {
   hello: {
     data: {
-      greeting: 'sdfsdf',
-      text: 'sdfsdfsdf',
+      greeting,
+      text,
     },
     isFetching: false,
   },
@@ -26,8 +29,6 @@ const INITIAL_STATE = {
 }
 
 export default function (state = INITIAL_STATE, action) {
-
-
   switch (action.type) {
     case REQUEST_PAGE_DATA:
       let { page, isFetching } = action.payload
