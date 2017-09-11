@@ -29,7 +29,7 @@ const INITIAL_STATE = {
   skills: {
     data: {}
   },
-  project: {
+  projects: {
     data: {}
   },
 }
@@ -50,7 +50,7 @@ export default function (state = INITIAL_STATE, action) {
       isFetching = action.payload.isFetching
 
       data = action.payload.response.items[0].fields
-
+      console.log(action.payload)
 
       return {
         ...state,
