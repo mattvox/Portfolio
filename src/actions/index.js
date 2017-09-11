@@ -105,16 +105,3 @@ export function fetchProjects() {
     payload: request,
   }
 }
-
-
-
-// CONTENTFUL API WITH AXIOS INSTEAD OF CONTENTFUL
-
-// export function fetchProjects() {
-//   const request = axios.get(`${API_BASE_URL}/spaces/${API_SPACE_ID}/entries?access_token=${API_TOKEN}&content_type=project`);
-//
-//   return {
-//     type: FETCH_PROJECTS,
-//     payload: request,
-//   }
-// }

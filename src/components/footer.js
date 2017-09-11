@@ -33,7 +33,7 @@ const Copyright = styled.div`
 `
 
 const Footer = () => (
-  <Page style={{ backgroundColor: '#F33024' }}>
+  <Page style={{ backgroundColor: '#242B3A' }}>
     <Col xs={10} xsOffset={1} style={{ textAlign: 'center' }}>
       <Icon href="https://www.github.com/mattvox" target="_blank">
         <FontAwesome name='github' />
@@ -46,9 +46,7 @@ const Footer = () => (
       </Icon>
     </Col>
     <Col xs={10} xsOffset={1}>
-      <Copyright>
-        © 2017 handcrafted by me
-      </Copyright>
+      <Copyright>Handcrafted by me © 2017 </Copyright>
     </Col>
   </Page>
 )

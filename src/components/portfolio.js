@@ -7,7 +7,7 @@ import Hello from './hello'
 import About from './about'
 import Skills from './skills'
 // import Projects from './projects'
-// import Contact from './contact'
+import Contact from './contact'
 import Footer from './footer'
 
 import Loading from './hocs/is-loading'
@@ -21,6 +21,7 @@ class Portfolio extends Component {
     dispatch(fetchProjects())
 
     dispatch(fetchPageData('about'))
+    dispatch(fetchPageData('contact'))
     dispatch(fetchPageData('skills'))
     // dispatch(fetchPageData('projectsList'))
   }
@@ -53,6 +54,20 @@ class Portfolio extends Component {
     )
   }
 
+  renderContact() {
+    const { data, isFetching } = this.props.contact
+    const { heading, description } = data
+    const ContactWithLoader = Loading(Contact)
+
+    return (
+      <ContactWithLoader
+        isFetching={isFetching}
+        heading={heading}
+        description={description}
+      />
+    )
+  }
+
   render() {
     const Element = Scroll.Element
 
@@ -64,6 +79,7 @@ class Portfolio extends Component {
             {this.renderAbout()}
           </Element>
           <Skills />
+          {this.renderContact()}
           <Footer />
         </Grid>
       </div>
@@ -76,6 +92,7 @@ function mapStateToProps(state) {
     projects: state.projectsPage.projects,
     hello: state.pageData.hello,
     about: state.pageData.about,
+    contact: state.pageData.contact,
   }
 }
 

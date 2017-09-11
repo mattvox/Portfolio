@@ -20,6 +20,12 @@ const INITIAL_STATE = {
       description: '',
     }
   },
+  contact: {
+    data: {
+      heading: '',
+      description: '',
+    },
+  },
   skills: {
     data: {}
   },
