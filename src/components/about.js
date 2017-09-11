@@ -6,7 +6,7 @@ import { Page, Title, StyledMarkdown } from './styled/styled'
 
 const WithColorPage = styled(Page)`
   background-color: #242B3A;
-  color: #E6ECEE;
+  color: #F3FBF6;
 `
 
 const About = (props) => (

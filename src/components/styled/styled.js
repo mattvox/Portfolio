@@ -21,7 +21,6 @@ export const Title = styled.h1`
 export const Subtitle = styled.h2`
   font-size: 2em;
   font-weight: bold;
-  letter-spacing: -1px;
 `
 
 export const Content = styled.div`

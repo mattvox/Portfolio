@@ -50,7 +50,7 @@ const Content = styled.div`
   top: 60%;
   height: 100%;
   width: 100%;
-  color: #E6ECEE;
+  color: #F3FBF6;
   transform: translateY(-50%);
 
   @media screen and (min-aspect-ratio: 3/2), screen and (max-width: 440px) {
