@@ -1,9 +1,10 @@
 import React from 'react';
-import { Col } from 'react-bootstrap'
-import FontAwesome from 'react-fontawesome'
 import styled from 'styled-components'
+import FontAwesome from 'react-fontawesome'
+import { Col } from 'react-bootstrap'
 
-import { Page } from './styled/styled'
+import { Page, Content, theme } from './styled/theme'
+
 
 const Icon = styled.a`
   font-size: 3.5em;
@@ -12,28 +13,27 @@ const Icon = styled.a`
   padding: 0 20px 0 20px;
 
   &:link {
-    color: #E6ECEE;
+    color: ${theme.lightGray};
   }
   &:visited {
-    color: #E6ECEE;
+    color: ${theme.lightGray};
   }
   &:hover {
-    color: #ACB8BC;
+    color: ${theme.mediumGray};
   }
   &:active {
-    color: #E6ECEE;
+    color: ${theme.lightGray};
   }
 `
 
-const Copyright = styled.div`
-  font-size: 1.5em;
-  color: #E6ECEE;
+const WithThemePage = Page.extend`
+  background-color: ${theme.darkGray};
+  color: ${theme.offWhite};
   text-align: center;
-  padding: 20px;
 `
 
 const Footer = () => (
-  <Page style={{ backgroundColor: '#242B3A' }}>
+  <WithThemePage>
     <Col xs={10} xsOffset={1} style={{ textAlign: 'center' }}>
       <Icon href="https://www.github.com/mattvox" target="_blank">
         <FontAwesome name='github' />
@@ -46,9 +46,11 @@ const Footer = () => (
       </Icon>
     </Col>
     <Col xs={10} xsOffset={1}>
-      <Copyright>Handcrafted by me © 2017 </Copyright>
+      <Content>
+        <p>Handcrafted by me © 2017</p>
+      </Content>
     </Col>
-  </Page>
+  </WithThemePage>
 )
 
 export default Footer;

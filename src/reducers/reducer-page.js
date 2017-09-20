@@ -7,7 +7,7 @@ const greeting = 'Hi, I\'m Matt.'
 const text = 'I\'m a full stack developer with a passion for creating and a love for learning new things.'
 
 const INITIAL_STATE = {
-  hello: {
+  landing: {
     data: {
       greeting,
       text,
@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   },
   about: {
     data: {
-      title: '',
+      heading: '',
       description: '',
     }
   },

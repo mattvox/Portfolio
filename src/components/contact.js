@@ -1,13 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
 
 import ContactForm from './forms/contact-form'
-import { Page, Title, StyledMarkdown } from './styled/styled'
+import { Page, Title, StyledMarkdown, theme } from './styled/theme'
 
-const WithColorPage = styled(Page)`
-  background-color: #a0c2c3;
-  color: #242B3A;
+
+const WithColorPage = Page.extend`
+  background-color: ${theme.lightBlue};
+  color: ${theme.darkGray};
   text-align: center;
 `
 

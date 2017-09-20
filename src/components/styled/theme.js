@@ -3,6 +3,16 @@ import ReactMarkdown from 'react-markdown'
 import { Row } from 'react-bootstrap'
 
 
+export const theme = {
+  white: '#ffffff',
+  offWhite: '#e7eff2',
+  lightGray: '#e6ecee',
+  lightBlue: '#9bd2db',
+  mediumBlue: '#53c3c3',
+  mediumGray: '#67737b',
+  darkGray: '#232b3a',
+}
+
 export const Page = styled(Row)`
   padding-top: 60px;
   padding-bottom: 60px;

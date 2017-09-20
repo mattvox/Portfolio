@@ -3,15 +3,14 @@ import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
 import Scroll from 'react-scroll'
 
-import Hello from './hello'
-import About from './about'
-import Skills from './skills'
 import Projects from './projects'
-import Contact from './contact'
-import Footer from './footer'
-
-import Loading from './hocs/is-loading'
-import { fetchPageData } from '../actions/index'
+import Landing from '../components/landing'
+import About from '../components/about'
+import Skills from '../components/skills'
+import Contact from '../components/contact'
+import Footer from '../components/footer'
+import Loading from '../components/hocs/is-loading'
+import { fetchPageData, fetchAsset } from '../actions/index'
 
 
 class Portfolio extends Component {
@@ -21,14 +20,16 @@ class Portfolio extends Component {
     dispatch(fetchPageData('about'))
     dispatch(fetchPageData('contact'))
     dispatch(fetchPageData('skills'))
+
+    dispatch(fetchAsset())
   }
 
-  renderHello() {
-    const { data, isFetching } = this.props.hello
+  renderLanding() {
+    const { data, isFetching } = this.props.landing
     const { greeting, text } = data
 
     return (
-      <Hello
+      <Landing
         isFetching={isFetching}
         greeting={greeting}
         text={text}
@@ -38,13 +39,13 @@ class Portfolio extends Component {
 
   renderAbout() {
     const { data, isFetching } = this.props.about
-    const { title, description } = data
+    const { heading, description } = data
     const AboutWithLoader = Loading(About)
 
     return (
       <AboutWithLoader
         isFetching={isFetching}
-        title={title}
+        heading={heading}
         description={description}
       />
     )
@@ -69,7 +70,7 @@ class Portfolio extends Component {
 
     return (
       <div>
-        {this.renderHello()}
+        {this.renderLanding()}
         <Grid fluid>
           <Element name='About'>
             {this.renderAbout()}
@@ -86,7 +87,7 @@ class Portfolio extends Component {
 
 function mapStateToProps(state) {
   return {
-    hello: state.pageData.hello,
+    landing: state.pageData.landing,
     about: state.pageData.about,
     contact: state.pageData.contact,
   }

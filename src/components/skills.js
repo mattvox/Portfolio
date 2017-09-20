@@ -6,9 +6,14 @@ import { Col } from 'react-bootstrap'
 
 import ProgressBar from 'react-progressbar.js'
 
-import { Page, Title, Content } from './styled/styled'
+import { Page, Title, Content } from './styled/theme'
 
 import '../grommet.min.css'
+
+// const WithColorPage = styled(Page)`
+//   background-color: #E6ECEE;
+//   /*color: #242B3A;*/
+// `
 
 const WithColorPage = styled(Page)`
   background-color: #E6ECEE;

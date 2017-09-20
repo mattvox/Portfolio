@@ -1,21 +1,20 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Col } from 'react-bootstrap'
+import { Page, Title, StyledMarkdown, theme } from './styled/theme'
 
-import { Page, Title, StyledMarkdown } from './styled/styled'
 
-const WithColorPage = styled(Page)`
-  background-color: #242B3A;
-  color: #F3FBF6;
+const WithThemePage = Page.extend`
+  background-color: ${theme.darkGray};
+  color: ${theme.offWhite};
 `
 
 const About = (props) => (
-  <WithColorPage>
+  <WithThemePage>
     <Col xs={10} xsOffset={1} sm={10} smOffset={1} md={8} mdOffset={2}>
-      <Title>what makes me tick</Title>
+      <Title>{props.heading}</Title>
       <StyledMarkdown source={props.description} />
     </Col>
-  </WithColorPage>
+  </WithThemePage>
 )
 
 export default About;

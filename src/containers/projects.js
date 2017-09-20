@@ -2,18 +2,25 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { Col, Image, Button } from 'react-bootstrap'
-
-import { Page, Content, Title, Subtitle } from './styled/styled'
-
 // import { Link } from 'react-router';
 
-import { fetchPageData } from '../actions/index';
+import {
+  Page,
+  Content,
+  Title,
+  Subtitle,
+  theme
+} from '../components/styled/theme'
 
-const WithColorPage = styled(Page)`
-  background-color: #FFF;
+import { fetchPageData } from '../actions/index'
+
+
+const WithThemePage = Page.extend`
+  background-color: ${theme.white};
+  color: ${theme.darkGray};
 `
 
-const StyledSubtitle = styled(Subtitle)`
+const StyledSubtitle = Subtitle.extend`
   padding: 20px 0 0 20px;
 `
 
@@ -76,10 +83,10 @@ class Projects extends Component {
 
     else {
       return (
-        <WithColorPage>
+        <WithThemePage>
           <Title>{this.props.projects.data.heading}</Title>
           {this.renderProjects()}
-        </WithColorPage>
+        </WithThemePage>
       )
     }
   }
