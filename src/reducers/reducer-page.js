@@ -27,7 +27,8 @@ const INITIAL_STATE = {
     },
   },
   skills: {
-    data: {}
+    data: {},
+    isFetching: true,
   },
   projects: {
     data: {}

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import ReactMarkdown from 'react-markdown'
+// import ReactMarkdown from 'react-markdown'
 import { Row } from 'react-bootstrap'
 
 
@@ -28,23 +28,56 @@ export const Title = styled.h1`
   text-align: center;
 `
 
-export const Subtitle = styled.h2`
+export const Subtitle = styled.h1`
   font-size: 2em;
   font-weight: bold;
 `
 
 export const Content = styled.div`
-  &>p {
+  .add-padding {
+    padding: 20px;
+  }
+
+  h1, h2, h3 {
+    padding: 20px 0 0 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: ${theme.mediumBlue};
+  }
+
+  p {
     font-size: 1.5em;
     font-weight: normal;
     padding: 20px;
   }
-`
 
-export const StyledMarkdown = styled(ReactMarkdown)`
-  &>p {
-    font-size: 1.5em;
-    font-weight: normal;
-    padding: 20px;
+  ul {
+    margin: 0;
+    padding: 0 0 20px 0;
+  }
+
+  li {
+    font-size: 1.2em;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0 0 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
   }
 `

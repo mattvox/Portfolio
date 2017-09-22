@@ -33,7 +33,7 @@ const Tags = styled.div`
   font-size: 1.2em;
   padding: 20px;
   text-transform: uppercase;
-  color: #B7CFC3;
+  color: ${theme.mediumBlue};
 `
 
 class Projects extends Component {
@@ -52,23 +52,19 @@ class Projects extends Component {
       return (
         <Content key={fields.title}>
           <Col xs={10} xsOffset={1} md={4} mdOffset={2}>
-            <div style={{ padding: '20px' }}>
+            <p>
               <Image responsive rounded src={`https:${fields.image.fields.file.url}`} />
-            </div>
+            </p>
           </Col>
           <Col xs={10} xsOffset={1} md={4} mdOffset={0}>
-            <Content>
               <StyledSubtitle>{fields.title}</StyledSubtitle>
               <Tags>{fields.tags}</Tags>
-            <StyledButton href={fields.github} target='_blank'>
+              <StyledButton href={fields.github} target='_blank'>
                 View on Github
               </StyledButton>
-            </Content>
           </Col>
           <Col xs={10} xsOffset={1} sm={10} smOffset={1} md={8} mdOffset={2}>
-            <Content>
               <p>{fields.description}</p>
-            </Content>
           </Col>
         </Content>
       )

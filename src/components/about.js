@@ -1,6 +1,8 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
-import { Page, Title, StyledMarkdown, theme } from './styled/theme'
+import { Page, Title, Content, theme } from './styled/theme'
+
+import ReactMarkdown from 'react-markdown'
 
 
 const WithThemePage = Page.extend`
@@ -12,7 +14,9 @@ const About = (props) => (
   <WithThemePage>
     <Col xs={10} xsOffset={1} sm={10} smOffset={1} md={8} mdOffset={2}>
       <Title>{props.heading}</Title>
-      <StyledMarkdown source={props.description} />
+      <Content>
+        <ReactMarkdown source={props.description} />
+      </Content>
     </Col>
   </WithThemePage>
 )

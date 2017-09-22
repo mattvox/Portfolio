@@ -10,7 +10,7 @@ import Skills from '../components/skills'
 import Contact from '../components/contact'
 import Footer from '../components/footer'
 import Loading from '../components/hocs/is-loading'
-import { fetchPageData, fetchAsset } from '../actions/index'
+import { fetchPageData } from '../actions/index'
 
 
 class Portfolio extends Component {
@@ -20,8 +20,6 @@ class Portfolio extends Component {
     dispatch(fetchPageData('about'))
     dispatch(fetchPageData('contact'))
     dispatch(fetchPageData('skills'))
-
-    dispatch(fetchAsset())
   }
 
   renderLanding() {
@@ -51,6 +49,19 @@ class Portfolio extends Component {
     )
   }
 
+  renderSkills() {
+    const { data, isFetching } = this.props.skills
+    const { skills } = data
+    const SkillsWithLoader = Loading(Skills)
+
+    return (
+      <SkillsWithLoader
+        isFetching={isFetching}
+        skills={data}
+      />
+    )
+  }
+
   renderContact() {
     const { data, isFetching } = this.props.contact
     const { heading, description } = data
@@ -75,7 +86,7 @@ class Portfolio extends Component {
           <Element name='About'>
             {this.renderAbout()}
           </Element>
-          <Skills />
+          {!this.props.skills.isFetching ? this.renderSkills() : 'nope'}
           <Projects />
           {this.renderContact()}
           <Footer />
@@ -90,6 +101,7 @@ function mapStateToProps(state) {
     landing: state.pageData.landing,
     about: state.pageData.about,
     contact: state.pageData.contact,
+    skills: state.pageData.skills,
   }
 }
 
