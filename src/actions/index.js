@@ -1,5 +1,4 @@
 import { createClient } from 'contentful'
-
 import { API_SPACE_ID, API_TOKEN } from '../settings_local'
 
 
@@ -24,7 +23,7 @@ export function fetchAsset() {
 export function fetchPageData(page) {
   const request = client.getEntries({
     content_type: page,
-    include: 4,
+    include: 2,
   })
     .then((response) => response)
     .catch(console.error)
@@ -40,13 +39,20 @@ export function fetchPageData(page) {
 export function requestPageData(page) {
   return {
     type: REQUEST_PAGE_DATA,
-    payload: { isFetching: true, page: page }
+    payload: {
+      isFetching: true,
+      page
+    }
   }
 }
 
 export function receivePageData(response, page) {
   return {
     type: RECEIVE_PAGE_DATA,
-    payload: { isFetching: false, response: response, page: page }
+    payload: {
+      isFetching: false,
+      response: response,
+      page: page
+    }
   }
 }

@@ -1,9 +1,9 @@
 body {
+  background-color: #232b3a;
   margin: 0;
   padding: 0;
   border: 0;
   font-family: 'Raleway', sans-serif;
-  background-color: #242B3A;
   width: 100%;
   height: 100%;
 }
@@ -11,25 +11,3 @@ body {
 *, *:after, *:before {
   box-sizing: border-box;
 }
-
-/*// Hex values:
-// Orange - D45D3C
-// Dark gray - 3F4549
-// Medium gray - 67727A
-// Light gray - ACB8BC
-// Lightest gray - E6ECEE*/
-
-/* New colors */
-
-/*White - #F3FBF6
-Light gray/olive - #B7CFC3
-Medium gray - #536C7C
-Dark gray - #242B3A*/
-
-/* New new colors */
-
-/*Medium blue - 53c3c3
-White - e7eff2
-Sky blue - 9bd2db
-Medium gray - 67737b
-Dark gray - 3e4549*/

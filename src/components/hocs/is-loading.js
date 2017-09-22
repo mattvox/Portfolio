@@ -4,11 +4,11 @@ export default function(ComposedComponent) {
 
   class Loading extends Component {
     render() {
-      const { isFetching } = this.props
+      const { isFetched } = this.props
       const loader = <div>Loading...</div>
 
       return (
-        isFetching ? loader : <ComposedComponent {...this.props} />
+        isFetched ? <ComposedComponent {...this.props} /> : loader
       )
     }
   }

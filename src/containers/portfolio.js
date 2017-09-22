@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
 import Scroll from 'react-scroll'
 
-import Projects from './projects'
 import Landing from '../components/landing'
 import About from '../components/about'
 import Skills from '../components/skills'
+import Projects from '../components/projects'
 import Contact from '../components/contact'
 import Footer from '../components/footer'
 import Loading from '../components/hocs/is-loading'
@@ -20,15 +20,16 @@ class Portfolio extends Component {
     dispatch(fetchPageData('about'))
     dispatch(fetchPageData('contact'))
     dispatch(fetchPageData('skills'))
+    dispatch(fetchPageData('projects'))
   }
 
   renderLanding() {
-    const { data, isFetching } = this.props.landing
+    const { data, isFetched } = this.props.landing
     const { greeting, text } = data
 
     return (
       <Landing
-        isFetching={isFetching}
+        isFetched={isFetched}
         greeting={greeting}
         text={text}
       />
@@ -36,40 +37,59 @@ class Portfolio extends Component {
   }
 
   renderAbout() {
-    const { data, isFetching } = this.props.about
+    const { data, isFetched } = this.props.about
     const { heading, description } = data
     const AboutWithLoader = Loading(About)
+    const Element = Scroll.Element
 
     return (
-      <AboutWithLoader
-        isFetching={isFetching}
-        heading={heading}
-        description={description}
-      />
+      <Element name='About'>
+        <AboutWithLoader
+          isFetched={isFetched}
+          heading={heading}
+          description={description}
+        />
+      </Element>
     )
   }
 
   renderSkills() {
-    const { data, isFetching } = this.props.skills
-    const { skills } = data
+    const { data, isFetched } = this.props.skills
+    const { skills, heading, description } = data
     const SkillsWithLoader = Loading(Skills)
 
     return (
       <SkillsWithLoader
-        isFetching={isFetching}
-        skills={data}
+        isFetched={isFetched}
+        heading={heading}
+        description={description}
+        skills={skills}
+      />
+    )
+  }
+
+  renderProjects() {
+    const { data, isFetched } = this.props.projects
+    const { projects, heading } = data
+    const ProjectsWithLoader = Loading(Projects)
+
+    return (
+      <ProjectsWithLoader
+        isFetched={isFetched}
+        heading={heading}
+        projects={projects}
       />
     )
   }
 
   renderContact() {
-    const { data, isFetching } = this.props.contact
+    const { data, isFetched } = this.props.contact
     const { heading, description } = data
     const ContactWithLoader = Loading(Contact)
 
     return (
       <ContactWithLoader
-        isFetching={isFetching}
+        isFetched={isFetched}
         heading={heading}
         description={description}
       />
@@ -77,17 +97,13 @@ class Portfolio extends Component {
   }
 
   render() {
-    const Element = Scroll.Element
-
     return (
       <div>
         {this.renderLanding()}
         <Grid fluid>
-          <Element name='About'>
-            {this.renderAbout()}
-          </Element>
-          {!this.props.skills.isFetching ? this.renderSkills() : 'nope'}
-          <Projects />
+          {this.renderAbout()}
+          {this.renderSkills()}
+          {this.renderProjects()}
           {this.renderContact()}
           <Footer />
         </Grid>
@@ -102,6 +118,7 @@ function mapStateToProps(state) {
     about: state.pageData.about,
     contact: state.pageData.contact,
     skills: state.pageData.skills,
+    projects: state.pageData.projects,
   }
 }
 

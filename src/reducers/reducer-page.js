@@ -1,41 +1,33 @@
-import {
-  REQUEST_PAGE_DATA,
-  RECEIVE_PAGE_DATA,
-} from '../actions/index'
+import { REQUEST_PAGE_DATA, RECEIVE_PAGE_DATA } from '../actions/index'
 
-const greeting = 'Hi, I\'m Matt.'
-const text = 'I\'m a full stack developer with a passion for creating and a love for learning new things.'
+const createInitialState = () => {
+  const pages = ['about', 'contact', 'skills', 'projects']
 
-const INITIAL_STATE = {
-  landing: {
-    data: {
-      greeting,
-      text,
+  const greeting = 'Hi, I\'m Matt.'
+  const text = 'I\'m a full stack developer with a passion for creating and a love for learning new things.'
+
+  const state = {
+    landing: {
+      data: {
+        greeting,
+        text,
+      },
+      isFetching: false,
     },
-    isFetching: false,
-  },
-  about: {
-    data: {
-      heading: '',
-      description: '',
+  }
+
+  pages.forEach(page => {
+    state[page] = {
+      data: {},
+      isFetching: true,
+      isFetched: false,
     }
-  },
-  contact: {
-    data: {
-      heading: '',
-      description: '',
-    },
-  },
-  skills: {
-    data: {},
-    isFetching: true,
-  },
-  projects: {
-    data: {}
-  },
+  })
+
+  return state
 }
 
-export default function (state = INITIAL_STATE, action) {
+export default function (state = createInitialState(), action) {
   switch (action.type) {
     case REQUEST_PAGE_DATA:
       let { page, isFetching } = action.payload
@@ -43,7 +35,7 @@ export default function (state = INITIAL_STATE, action) {
 
       return {
         ...state,
-        [page]: { data, isFetching },
+        [page]: { data, isFetching, isFetched: false },
        }
 
     case RECEIVE_PAGE_DATA:
@@ -51,11 +43,10 @@ export default function (state = INITIAL_STATE, action) {
       isFetching = action.payload.isFetching
 
       data = action.payload.response.items[0].fields
-      console.log(action.payload)
 
       return {
         ...state,
-        [page]: { data, isFetching }
+        [page]: { data, isFetching, isFetched: true }
       }
 
     default:
