@@ -40,6 +40,9 @@ class Portfolio extends Component {
     const { data, isFetched } = this.props.about
     const { heading, description } = data
     const AboutWithLoader = Loading(About)
+
+    // provides a scroll anchor target from
+    // react-scroll
     const Element = Scroll.Element
 
     return (

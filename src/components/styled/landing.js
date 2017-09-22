@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 
+// styling for the landing component only
+// app-wide, reusable styles are found in theme.js
+
 export const Container = styled.div`
   box-sizing: border-box;
   display: block;
@@ -38,6 +41,9 @@ export const Background = styled.div`
   }
 `
 
+// creates a small, styled div to eliminate
+// random ugly horizontal lines between the landing section
+// and the section immediately below it
 export const ColorFix = styled.div`
   box-sizing: border-box;
   display: block;

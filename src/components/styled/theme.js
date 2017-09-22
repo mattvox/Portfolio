@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Row } from 'react-bootstrap'
 
+// reusable styles used app-wide
 
 export const theme = {
   white: '#ffffff',

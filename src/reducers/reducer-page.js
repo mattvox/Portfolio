@@ -1,6 +1,11 @@
 import { REQUEST_PAGE_DATA, RECEIVE_PAGE_DATA } from '../actions/index'
 
-const createInitialState = () => {
+// creates initial state based on a page array,
+// to dry up the code a bit since each section
+// was very similar. Landing page content is
+// provided in the initial state to reduce
+// perceived load time.
+function createInitialState() {
   const pages = ['about', 'contact', 'skills', 'projects']
 
   const greeting = 'Hi, I\'m Matt.'
@@ -13,13 +18,14 @@ const createInitialState = () => {
         text,
       },
       isFetching: false,
+      isFetched: true,
     },
   }
 
   pages.forEach(page => {
     state[page] = {
       data: {},
-      isFetching: true,
+      isFetching: false,
       isFetched: false,
     }
   })
@@ -27,29 +33,30 @@ const createInitialState = () => {
   return state
 }
 
+function requestPageData(state, action) {
+  const { page, isFetching } = action.payload
+  let { data } = state[page]
+
+  return {
+    ...state,
+    [page]: { data, isFetching, isFetched: false },
+   }
+}
+
+function receivePageData(state, action) {
+  const { page, isFetching } = action.payload
+  const { fields: data } = action.payload.response.items[0]
+
+  return {
+    ...state,
+    [page]: { data, isFetching, isFetched: true }
+  }
+}
+
 export default function (state = createInitialState(), action) {
   switch (action.type) {
-    case REQUEST_PAGE_DATA:
-      let { page, isFetching } = action.payload
-      let { data } = state[page]
-
-      return {
-        ...state,
-        [page]: { data, isFetching, isFetched: false },
-       }
-
-    case RECEIVE_PAGE_DATA:
-      page = action.payload.page
-      isFetching = action.payload.isFetching
-
-      data = action.payload.response.items[0].fields
-
-      return {
-        ...state,
-        [page]: { data, isFetching, isFetched: true }
-      }
-
-    default:
-      return state;
+    case REQUEST_PAGE_DATA: return requestPageData(state, action)
+    case RECEIVE_PAGE_DATA: return receivePageData(state, action)
+    default: return state;
   }
 }

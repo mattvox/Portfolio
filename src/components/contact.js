@@ -1,10 +1,8 @@
 import React from 'react'
 import { Col } from 'react-bootstrap'
 import ReactMarkdown from 'react-markdown'
-
-import ContactForm from './forms/contact-form'
 import { Page, Title, Content, theme } from './styled/theme'
-
+// import ContactForm from './forms/contact-form'
 
 const WithColorPage = Page.extend`
   background-color: ${theme.lightBlue};

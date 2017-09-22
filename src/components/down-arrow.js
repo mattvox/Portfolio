@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import FontAwesome from 'react-fontawesome'
+import { theme } from './styled/theme'
 
 const Arrow = styled.div`
   bottom: 4px;
@@ -9,7 +10,7 @@ const Arrow = styled.div`
   transform: translateX(-50%);
   z-index: 2;
 
-  color: #eee;
+  color: ${theme.white};
   font-size: 2.4em;
   background: none;
   border: none;

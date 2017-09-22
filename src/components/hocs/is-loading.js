@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
-export default function(ComposedComponent) {
 
+// higher order component which provides
+// a loader/spinner before data is loaded
+// from the API
+export default function(ComposedComponent) {
   class Loading extends Component {
     render() {
       const { isFetched } = this.props

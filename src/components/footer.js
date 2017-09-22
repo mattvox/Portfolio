@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components'
 import FontAwesome from 'react-fontawesome'
 import { Col } from 'react-bootstrap'
-
 import { Page, Content, theme } from './styled/theme'
 
 

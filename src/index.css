@@ -8,6 +8,14 @@ body {
   height: 100%;
 }
 
+/* Opinionated resets */
+
 *, *:after, *:before {
   box-sizing: border-box;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  display: block;
 }

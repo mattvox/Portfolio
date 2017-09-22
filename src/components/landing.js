@@ -1,12 +1,11 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 import Scroll from 'react-scroll'
-
 import DownArrow from './down-arrow'
 import { Title, Subtitle } from './styled/theme'
 import { Container, Background, ColorFix, Content } from './styled/landing'
 
-
+// in-page scroll link from react-scroll
 const AnchorLink = Scroll.Link
 
 const Greeting = Title.extend`
