@@ -1,5 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
+import { render } from 'react-snapshot'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Router, browserHistory } from 'react-router'
@@ -21,7 +22,7 @@ const store = createStore(reducers, /*preloadedState,*/ composeEnhancers(
 ));
 /* eslint-enable */
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <Router history={browserHistory} routes={routes} />
   </Provider>
