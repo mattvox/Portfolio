@@ -18,11 +18,11 @@ const WithThemePage = Page.extend`
 
 const StyledSubtitle = Subtitle.extend`
   padding: 0 0 0 20px;
-  margin: 0;
+  margin: 10px 0 0 0;
 `
 
 const StyledButton = styled(Button)`
-  margin: 20px 0 0 20px;
+  margin: 0 0 0 20px;
   text-align: center;
 `
 
@@ -42,9 +42,7 @@ const Projects = ({ heading, projects, isFetched }) => {
     return (
       <Content key={fields.title}>
         <Col xs={10} xsOffset={1} md={4} mdOffset={2}>
-          <p>
-            <Image responsive rounded src={`https:${imageUrl}`} />
-          </p>
+          <Image responsive src={`https:${imageUrl}`} />
         </Col>
         <Col xs={10} xsOffset={1} md={4} mdOffset={0}>
             <StyledSubtitle>{title}</StyledSubtitle>
