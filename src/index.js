@@ -10,7 +10,10 @@ import thunk from 'redux-thunk'
 import reducers from './reducers'
 import routes from './routes'
 
-import './index.css';
+import './css/bootstrap.min.css'
+import './css/font-awesome.min.css'
+import './css/fonts.css'
+import './css/index.css'
 
 import registerServiceWorker from './registerServiceWorker'
 
