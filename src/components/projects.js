@@ -60,7 +60,9 @@ const Projects = ({ heading, projects, isFetched }) => {
 
   return (
     <WithThemePage>
-      <Title>{heading}</Title>
+      <Col xs={10} xsOffset={1} sm={10} smOffset={1} md={8} mdOffset={2}>
+        <Title>{heading}</Title>
+      </Col>
       {renderProjects}
     </WithThemePage>
   )
