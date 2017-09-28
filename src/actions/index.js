@@ -1,5 +1,4 @@
 import { createClient } from 'contentful'
-import { API_SPACE_ID, API_TOKEN } from '../settings_local'
 
 // action types
 export const FETCH_PAGE_DATA = 'FETCH_PAGE_DATA'
@@ -7,6 +6,9 @@ export const REQUEST_PAGE_DATA = 'REQUEST_PAGE_DATA'
 export const RECEIVE_PAGE_DATA = 'RECEIVE_PAGE_DATA'
 
 // creates client for Contentful API
+const API_SPACE_ID = process.env.REACT_APP_CONTENTFUL_API_SPACE_ID
+const API_TOKEN = process.env.REACT_APP_CONTENTFUL_API_TOKEN
+
 const client = createClient({
   space: API_SPACE_ID,
   accessToken: API_TOKEN,
