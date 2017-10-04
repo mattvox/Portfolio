@@ -15,11 +15,12 @@
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
-    "styled-components": "^2.1.2"
+    "styled-components": "^2.1.2",
+    "react-snapshot": "^2.0.0-0"
   },
   "devDependencies": {
     "react-scripts": "1.0.11",
-    "react-snapshot": "^1.2.0"
+    "react-snapshot": "^2.0.0-0"
   },
   "scripts": {
     "start": "react-scripts start",
