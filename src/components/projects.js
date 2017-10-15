@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Col, Image, Button } from 'react-bootstrap'
+import ReactMarkdown from 'react-markdown'
 
 import {
   Page,
@@ -36,7 +37,7 @@ const Tags = styled.div`
 const Projects = ({ heading, projects, isFetched }) => {
   const renderProjects = projects.map((project) => {
     const { fields } = project
-    const { title, tags, github, description, image } = fields
+    const { title, tags, github, linkUrl, description, image } = fields
     const { url: imageUrl } = image.fields.file
 
     return (
@@ -45,14 +46,19 @@ const Projects = ({ heading, projects, isFetched }) => {
           <Image responsive src={`https:${imageUrl}`} />
         </Col>
         <Col xs={10} xsOffset={1} md={4} mdOffset={0}>
-            <StyledSubtitle>{title}</StyledSubtitle>
-            <Tags>{tags}</Tags>
-            <StyledButton href={github} target='_blank'>
-              View on Github
-            </StyledButton>
+          <StyledSubtitle>{title}</StyledSubtitle>
+          <Tags>{tags}</Tags>
+          {github && <StyledButton href={github} target='_blank'>
+            View on Github
+          </StyledButton>}
+          {linkUrl && <StyledButton href={linkUrl} target='_blank'>
+            View Website
+          </StyledButton>}
         </Col>
         <Col xs={10} xsOffset={1} sm={10} smOffset={1} md={8} mdOffset={2}>
-            <p>{description}</p>
+          <Content>
+            <ReactMarkdown source={description} />
+          </Content>
         </Col>
       </Content>
     )
