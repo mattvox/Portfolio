@@ -14,7 +14,7 @@ import { fetchPageData } from '../actions/index'
 
 
 class Portfolio extends Component {
-  componentDidMount() {
+  componentWillMount() {
     const { dispatch } = this.props
 
     dispatch(fetchPageData('about'))

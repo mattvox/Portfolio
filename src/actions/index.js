@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import { snapshot } from 'react-snapshot'
 
 // action types
 export const FETCH_PAGE_DATA = 'FETCH_PAGE_DATA'
@@ -17,19 +18,21 @@ const client = createClient({
 // fetches data from Contenful API based on page variable
 // and call additional dispatches to track the request
 export function fetchPageData(page) {
-  const request = client.getEntries({
-    content_type: page,
-    include: 2,
-  })
+  const request = snapshot(() => {
+    return client.getEntries({
+      content_type: page,
+      include: 2,
+    })
     .then((response) => response)
     .catch(console.error)
+  })
 
-    return dispatch => {
-      dispatch(requestPageData(page))
+  return dispatch => {
+    dispatch(requestPageData(page))
 
-      return request
-        .then(response => dispatch(receivePageData(response, page)))
-    }
+    return request
+      .then(response => dispatch(receivePageData(response, page)))
+  }
 }
 
 // action dispatched by fetchPageData
