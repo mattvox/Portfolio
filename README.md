@@ -2,7 +2,7 @@
 
 My portfolio app built on the JAMstack (JavaScript, APIs, and Markup).
 
-https://blif.io
+https://mattbliffert.com
 
 
 ## Overview
@@ -24,17 +24,17 @@ This lightweight site is engineered using the JAMstack, relying on React, Redux,
 
 ## Deployment
 
-This app is currently served by an Nginx webserver hosted on a Linode VPS running Ubuntu 16.04, fully managed and setup by me.
+This app is currently hosted on a blazingly fast, global CDN. Continuous deployment integrated with Github for easy updates and deployments.
 
 
 ## Development Roadmap
 
 This is v1.0 of the app, but future enhancements are expected to include:
-* Move app from its current VPS to a static server with a global CDN, like those provided by Netlify or Surge.
+* ~~Move app from its current VPS to a static server with a global CDN, like those provided by Netlify or Surge.~~ Migrated to Netlify.
+* ~~Integrate continuous deployment/integration.~~ Using Netlify's CI.
 * Introduce a more comprehensive test suite.
-* Integrate continuous deployment.
-* Provide a Case Studies section for the most interesting projects and client apps, with each getting its own page.
-* Provide a Recent Works page to showcase recent client apps.
+* Provide a Case Studies section for the most interesting projects and client apps, with each getting its own "page".
+* Rethink and refactor sections/layout for a version 2! There is always room for improvement! :)
 
 
 #
